@@ -1,3 +1,13 @@
+import express, { Request, Response } from "express";
+import type { Message, PartialMessage, Snowflake } from "discord.js";
+import { Client, IntentsBitField, MessageType, Options, Partials } from "discord.js";
+import { inspect, promisify } from "util";
+import type { CommunicationMessage } from "./utils/cluster/communication";
+import config from "./config";
+import { inviteUrl } from "./constants/links";
+import numberSystems from "./constants/numberSystems";
+import { connection, getGuildDocument, touchGuildDocument } from "./database";
+import import handleAccess from "./handlers/access";
 import type { Message, PartialMessage, Snowflake } from "discord.js";
 import { Client, IntentsBitField, MessageType, Options, Partials } from "discord.js";
 import { inspect, promisify } from "util";
@@ -193,7 +203,6 @@ process
 // ==========================================
 // RENDER WEBSERVER CODE (GANZ UNTEN ANHÄNGEN)
 // ==========================================
-import express, { Request, Response } from 'express';
 
 const app = express();
 
