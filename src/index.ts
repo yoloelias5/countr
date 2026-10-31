@@ -193,10 +193,11 @@ process
 // ==========================================
 // RENDER WEBSERVER CODE (GANZ UNTEN ANHÄNGEN)
 // ==========================================
-const express = require('express');
+import express, { Request, Response } from 'express';
+
 const app = express();
 
-app.get('/', (req, res) => {
+app.get('/', (req: Request, res: Response) => {
     res.send('Bot up and running');
 });
 
@@ -204,4 +205,3 @@ const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
     console.log(`[Webserver] Aktiv auf Port ${PORT}`);
 });
-
