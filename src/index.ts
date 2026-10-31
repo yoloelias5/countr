@@ -189,3 +189,19 @@ void Promise.all([
 process
   .on("uncaughtException", error => mainLogger.warn(`Uncaught exception: ${inspect(error)}`))
   .on("unhandledRejection", error => mainLogger.warn(`Unhandled rejection: ${inspect(error)}`));
+
+// ==========================================
+// RENDER WEBSERVER CODE (GANZ UNTEN ANHÄNGEN)
+// ==========================================
+const express = require('express');
+const app = express();
+
+app.get('/', (req, res) => {
+    res.send('Bot up and running');
+});
+
+const PORT = process.env.PORT || 8080;
+app.listen(PORT, () => {
+    console.log(`[Webserver] Aktiv auf Port ${PORT}`);
+});
+
